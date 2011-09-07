@@ -5,15 +5,8 @@
 # Simple script to check the status of arrays on 3ware/AMCC controllers
 # using Nagios.
 # 
-# Sander Klein <sander [AT] pictura [dash] dp [DOT] nl>
-# http://www.pictura-dp.nl/
-# Contributions by:
-# Dan Langille
-# http://www.freebsddiary.org/
 #
-# Version 20100920
 #
-# BUGS: Sure...
 #
 
 TWCLI=`which tw_cli`
