@@ -1,5 +1,26 @@
 Various Xenserver scripts/nagios checks written for Directi(http://directi.com)
 
-Description:
+Description:Most of the scripts were written to be used with Nagios to check Xenserver system metrics
+
+
+## check_3ware.sh
+checks the RAID status of a 3ware controller . Uses the 3dm2/tw_cli utility to achieve this. The script also checks the status of a BBU if attached
+
+##check_disk.sh
+checks a Xenserver Storage Repository for disk utilization. The supported format is a LVM based Local Storage
+
+##check_disk_stats
+checks for I/O on /dev/sdb using iostat -x -m $disk and graphs the output to Groundworks 
+
+##check_vm.sh
+checks for all VM's currently running on a system 
+
+##create_snapshot.sh
+creates a snapshot of every running VM on a system.Can be run as a cron for a daily/weekly snapshots
+
+##delete snapshot.sh
+deletes existing snapshots on a system.Ideal usage is with the above script to have rotating copies of snapshots
+
+ 
 
 
