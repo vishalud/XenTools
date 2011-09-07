@@ -1,0 +1,30 @@
+#!/bin/bash
+
+disk=sdb
+disk_total_util=`iostat -x -m $disk | grep $disk | awk '{print $6,$7,$12}'`
+disk_read_util=`echo $disk_total_util | awk '{print $1}'`
+disk_write_util=`echo $disk_total_util | awk '{print $2}'`
+util_percent=`echo $disk_total_util | awk '{print $3}'`
+max_percent=80
+check_number=`echo $util_percent | grep "\."`
+
+if [ $? -eq "0" ];then
+        disk_util_percent_1=`echo $util_percent | cut -d. -f1`
+        disk_util_percent_2=`echo $util_percent | cut -d. -f2`
+                if [ $disk_util_percent_2 -gt 50 ];then
+                        add=1
+                else
+                        add=0
+                fi
+        disk_util_percent=`echo $disk_util_percent_1+$add | bc`
+        else
+disk_util_percent=$util_percent
+fi
+
+if [ $disk_util_percent -gt $max_percent ];then
+echo Reads: $disk_read_util MB Writes: $disk_write_util MB Percent: $disk_util_percent%
+        exit 2
+else
+echo Reads: $disk_read_util MB Writes: $disk_write_util MB Percent: $disk_util_percent%
+        exit 0
+fi
