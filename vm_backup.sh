@@ -2,16 +2,6 @@
 
 #
 # Citrix XenServer 5.5 VM Backup Script
-# This script provides online backup for Citrix Xenserver 5.5 virtual machines
-#
-# @version	3.01
-# @created	24/11/2009
-# @lastupdated	01/12/2009
-#
-# @author	Andy Burton
-# @url		http://www.andy-burton.co.uk/blog/
-# @email	andy@andy-burton.co.uk
-#
 
 
 
